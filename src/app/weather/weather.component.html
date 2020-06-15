@@ -1,25 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark default-color">
+  <h3>Weather Detail </h3>
+  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+</nav>
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h3 class="text-center my-4">Search for Weather:</h3>
-            <form [formGroup]="weatherSearchForm" (ngSubmit)="searchSubmit(weatherSearchForm.value)" >
-              <div class="form-group">
-                <input
-                  class="form-control"
-                  type="text"
-                  id="weatherLocation"
-                  aria-describedby="weatherLocation"
-                  placeholder="Please input a Location"
-                  formControlName="location"
-                />
-              </div>
-              <div class="text-center">
-                <button type="submit" class="btn btn-success btn-md">
-                  Search for the weather
-                </button>
-              </div>
-            </form>
-          </div>
-      <div class="col-md-6"><h3 class="text-center my-4">Weather Details:</h3></div>
+  <div class="widget">
+    <div class="details">
+      <div class="temperature">{{(this.weatherInfo?.temp)}}°</div>
+      <div class="summary">
+        {{this.weatherInfo?.description}}
+        <!-- <p class="summaryText">{{this.weatherInfo?.description}}</p> -->
+      </div>
+      <div class="precipitation">Humidity: {{this.weatherInfo?.humidity}}%</div>
+      <div class="wind">Wind: {{this.weatherInfo?.wind}} mph</div>
+      <div class="precipitation">
+        Location: {{ this.weatherInfo?.city }}, {{this.weatherInfo?.country }}.
+      </div>
+      <div class="precipitation">
+        {{this.weatherInfo?.date}}
+      </div>
     </div>
+    <div class="pictoBackdrop"></div>
+    <div class="pictoFrame"></div>
+    <div class="pictoCloudBig"></div>
+    <div class="pictoCloudFill"></div>
+    <div class="pictoCloudSmall"></div>
+    <div class="iconCloudBig"></div>
+    <div class="iconCloudFill"></div>
+    <div class="iconCloudSmall"></div>
   </div>
+</div>

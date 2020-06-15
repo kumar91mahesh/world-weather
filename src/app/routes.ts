@@ -5,5 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const allAppRoutes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'detail/:id', component: WeatherComponent },
+  { path: 'details/:id/:code', component: WeatherComponent },
+  { path: 'detail', component: WeatherComponent },
+
 ];

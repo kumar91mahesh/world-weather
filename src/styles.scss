@@ -2,6 +2,328 @@
 @import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
 
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+$morro: #aacbe6;
+$cayucos: #9cd0ff;
+$bahamas: #3cc0fe;
+$capetown: #27a5fd;
+$cabo: #0066ff;
+$reynisfjara: #34373e;
+$svalbard: #d2e9fa;
+
+$bahamasAlpha: rgba($bahamas, 0.7);
+$caboAlpha: rgba($cabo, 0.6);
+
+$capetownShadow: rgba($capetown, 0.4);
+
+$widgetHeight: 400px;
+$pictoBackdropDiameter: $widgetHeight * 1.4;
+$pictoFrameDiameter: $pictoBackdropDiameter * .6;
+$pictoCloudBigDiameter: $pictoFrameDiameter * .65;
+$pictoCloudSmallDiameter: $pictoCloudBigDiameter * .7;
+$pictoCloudFillSize: $pictoCloudSmallDiameter * .7;
+$iconCloudBigDiameter: 36px;
+$iconCloudSmallDiameter: $iconCloudBigDiameter * .65;
+$iconCloudFillSize: $iconCloudSmallDiameter * .7;
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  background: #CEF;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 98vh;
+}
+
+.widget {
+  background: linear-gradient(to bottom right, $bahamas 20%, $cabo);
+  width: 900px;
+//   height: $widgetHeight;
+  border-radius: 6px;
+  box-shadow: 0px 60px 80px -20px $capetownShadow;
+  position: relative;
+  overflow: hidden;
+}
+
+.pictoBackdrop {
+  position: absolute;
+  height: $pictoBackdropDiameter;
+  width: $pictoBackdropDiameter;
+  border-radius: 50%;
+  background: linear-gradient(160deg, $bahamasAlpha 40%, $caboAlpha);
+  right: -40px;
+  top: -90px;
+}
+
+.pictoFrame {
+  position: absolute;
+  background: $reynisfjara;
+  border-radius: 50%;
+  box-shadow: 0px 50px 60px -20px $cabo;
+  height: $pictoFrameDiameter;
+  width: $pictoFrameDiameter;
+  right: 80px;
+  top: 25px;
+}
+
+.pictoCloudBig {
+  position: absolute;
+  border-radius: 50%;
+  background: $morro;
+  box-shadow: 20px 20px 80px -20px $morro;
+  height: $pictoCloudBigDiameter;
+  width: $pictoCloudBigDiameter;
+  top: 80px;
+  right: 160px;
+}
+.pictoCloudFill {
+  position: absolute;
+  background: $morro;
+  box-shadow: 0px 20px 80px -20px $morro;
+  height: $pictoCloudFillSize;
+  width: $pictoCloudFillSize;
+  top: 191px;
+  right: 265px;
+}
+.pictoCloudSmall {
+  position: absolute;
+  border-radius: 50%;
+  background: $svalbard;
+  height: $pictoCloudSmallDiameter;
+  width: $pictoCloudSmallDiameter;
+  top: 146px;
+  right: 282px;
+}
+
+.iconCloudBig {
+  position: absolute;
+  border-radius: 50%;
+  background: $cayucos;
+  height: $iconCloudBigDiameter;
+  width: $iconCloudBigDiameter;
+  top: 200px;
+  left: 80px;
+}
+.iconCloudSmall {
+  position: absolute;
+  border-radius: 50%;
+  height: $iconCloudSmallDiameter;
+  width: $iconCloudSmallDiameter;
+  background: $svalbard;
+  top: 213px;
+  left: 70px;
+}
+.iconCloudFill {
+  position: absolute;
+  height: $iconCloudFillSize;
+  width: $iconCloudFillSize;
+  background: $cayucos;
+  top: 220px;
+  left: 80px;
+}
+
+.details{
+  font-family: Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-left: 60px;
+}
+.temperature {
+  color: white;
+  font-weight: 300;
+  font-size: 10em;
+}
+.summary {
+  color: $svalbard;
+  font-size: 2em;
+  font-weight: 300;
+  width: 260px;
+  margin-top: -16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid $cayucos;
+  margin-left: 8px;
+}
+.summaryText {
+  margin: 0;
+  margin-left: 56px;
+}
+.precipitation, .wind {
+  color: $svalbard;
+  font-size: 1.6em;
+  font-weight: 300;
+  margin-left: 8px;
+}
+.precipitation {
+  margin-top: 16px;
+}
+.wind {
+  margin-top: 4px;
+}
+
+
+
+
+
 .ag-theme-alpine {
     @include ag-theme-alpine();
+}
+.stretch-card>.card {
+    width: 100%;
+    min-width: 100%
+}
+
+body {
+    background-color: #f9f9fa
+}
+
+.flex {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
+}
+
+@media (max-width:991.98px) {
+    .padding {
+        padding: 1.5rem
+    }
+}
+
+@media (max-width:767.98px) {
+    .padding {
+        padding: 1rem
+    }
+}
+
+.padding {
+    padding: 5rem
+}
+
+.grid-margin,
+.purchace-popup>div {
+    margin-bottom: 25px
+}
+
+.card {
+    border: 0;
+    border-radius: 2px
+}
+
+.card-weather {
+    background: #e1ecff;
+    background-image: linear-gradient(to left bottom, #d6eef6, #dff0fa, #e7f3fc, #eff6fe, #f6f9ff)
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem
+}
+
+.card-weather .card-body:first-child {
+    background: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1557323760/weather.svg) no-repeat center;
+    background-size: cover
+}
+
+.card .card-body {
+    padding: 1.88rem 1.81rem
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem
+}
+
+.card-weather .weather-date-location {
+    padding: 0 0 38px
+}
+
+.h3,
+h3 {
+    font-size: 1.56rem
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500
+}
+
+.text-gray,
+.card-subtitle,
+.new-accounts ul.chats li.chat-persons a p.joined-date {
+    color: #969696
+}
+
+p {
+    font-size: 13px
+}
+
+.text-gray,
+.card-subtitle,
+.new-accounts ul.chats li.chat-persons a p.joined-date {
+    color: #969696
+}
+
+.card-weather .weather-data {
+    padding: 0 0 4.75rem
+}
+
+.mr-auto,
+.mx-auto {
+    margin-right: auto !important
+}
+
+.display-3 {
+    font-size: 2.5rem
+}
+
+.card-weather .card-body {
+    background: #ffffff
+}
+
+.card-weather .weakly-weather {
+    background: #ffffff;
+    overflow-x: auto
+}
+
+.card-weather .weakly-weather .weakly-weather-item {
+    flex: 0 0 14.28%;
+    border-right: 1px solid #f2f2f2;
+    padding: 1rem;
+    text-align: center
+}
+
+.mb-0,
+.my-0 {
+    margin-bottom: 0 !important
+}
+
+.card-weather .weakly-weather .weakly-weather-item i {
+    font-size: 1.2rem
 }
